@@ -11,8 +11,8 @@ theme:
   favicon: assets/images/SIB_logo.svg
 
 # Repository
-repo_name: GeertvanGeest/course_website_template
-repo_url: https://github.com/GeertvanGeest/course_website_template
+repo_name: sib-swiss/course_website_template
+repo_url: https://github.com/sib-swiss/course_website_template
 
 markdown_extensions:
   - abbr
