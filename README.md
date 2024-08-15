@@ -1,5 +1,7 @@
 # Course website template
 
+**Find instructions at [sib-swiss.github.io/gh-pages-training/](https://sib-swiss.github.io/gh-pages-training/).**
+
 This website is generated with [MkDocs](https://www.mkdocs.org/), with the theme [Material](https://squidfunk.github.io/mkdocs-material/).
 
 To host it locally, install MkDocs:
