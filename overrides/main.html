@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block site_meta %}
+{{ super() }}
+<script type="application/ld+json">
+<!-- bioschemas goes here!  -->
+</script>
+{% endblock %}
+
+{% block outdated %}
+  You're not viewing the latest version.
+  <a href="{{ '../' ~ base_url }}">
+    <strong>Click here to go to latest.</strong>
+  </a>
+{% endblock %}

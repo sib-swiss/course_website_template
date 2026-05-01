@@ -2,34 +2,84 @@
 
 **Find instructions at [sib-swiss.github.io/gh-pages-training/](https://sib-swiss.github.io/gh-pages-training/).**
 
-This website is generated with [MkDocs](https://www.mkdocs.org/), with the theme [Material](https://squidfunk.github.io/mkdocs-material/).
+This website is generated with [Zensical](https://zensical.org).
 
-To host it locally, install mkdocs-material: 
+Default deployment is versioned deployment with [mike](https://github.com/squidfunk/mike) (for Zensical).
 
-```bash
-pip install mkdocs-material
-```
+## Local development
 
-Fork this repository and clone it to your local computer. Then, make the repository your current directory and type:
+Install Zensical and mike:
 
 ```bash
-mkdocs serve
+pip install zensical
+pip install git+https://github.com/squidfunk/mike.git
 ```
 
-To host it locally.
+Use this repository as a template, clone it locally, and run:
 
-Check it out with your browser at [http://localhost:8000/](http://localhost:8000/).
-
-If you are ready to host it on GitHub, you can run: 
-
-```sh
-mkdocs gh-deploy
+```bash
+zensical serve
 ```
 
-This will generate a webpage at:
+Then open [http://localhost:8000/](http://localhost:8000/).
 
-https://yourname.github.io/reponame
+## Deployment (default: mike)
 
-After that, the workflow specified at `.github/workflows/render_page.yml` will rebuild the website after you push to the main branch. 
+Set the site URL in [zensical.toml](zensical.toml) to your GitHub Pages URL:
 
-More documentation can be found on the [MkDocs Material documentation](https://squidfunk.github.io/mkdocs-material/).
+- https://yourname.github.io/reponame/
+
+Deploy the first version and set latest as default:
+
+```bash
+mike deploy --push --update-aliases 0.1 latest
+mike set-default --push latest
+```
+
+For the next releases, deploy a new version and update latest:
+
+```bash
+mike deploy --push --update-aliases 0.2 latest
+```
+
+Your documentation will be available at:
+
+- https://yourname.github.io/reponame/
+- https://yourname.github.io/reponame/0.1/
+- https://yourname.github.io/reponame/0.2/
+
+## Zenodo archival (optional)
+
+To archive course versions on [Zenodo](https://zenodo.org/) and assign DOIs, configure [.zenodo.json](.zenodo.json) with your metadata:
+
+```json
+{
+  "title": "Course Name",
+  "creators": [{"name": "Your Name", "affiliation": "Your Institution"}],
+  "description": "...",
+  "keywords": ["course", "training"],
+  "license": "CC-BY-4.0"
+}
+```
+
+Then:
+
+1. **Link to Zenodo**: Go to https://zenodo.org/account/settings/github/ and connect your GitHub repository.
+2. **Create a release**: On GitHub, go to Releases and click "Create a new release".
+   - Set tag to match your version (e.g., `v0.1`).
+   - Publish the release.
+3. **Zenodo automates the rest**: Zenodo will automatically fetch your repository snapshot and generate a DOI.
+
+Your course will then have a citable DOI at https://doi.org/10.5281/zenodo.XXXXXXX.
+
+## Notes
+
+- mike publishes to the gh-pages branch.
+- In GitHub repository settings, configure Pages to serve from the gh-pages branch.
+- The workflow in [.github/workflows/render_page.yml](.github/workflows/render_page.yml) still uses MkDocs gh-deploy and should be updated or removed if mike is your deployment method.
+
+More documentation:
+
+- Zensical versioning: https://zensical.org/docs/setup/versioning/
+- Zensical docs: https://zensical.org/docs/
+- mike docs: https://github.com/squidfunk/mike

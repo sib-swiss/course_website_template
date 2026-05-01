@@ -1,0 +1,23 @@
+{
+  "title": "Course Website Template",
+  "description": "Course website built with Zensical",
+  "creators": [
+    {
+      "name": "Your Name",
+      "affiliation": "Your Institution"
+    }
+  ],
+  "keywords": [
+    "course",
+    "training",
+    "documentation"
+  ],
+  "license": "CC-BY-4.0",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/sib-swiss/course_website_template",
+      "relation": "isSupplementedBy",
+      "resource_type": "software"
+    }
+  ]
+}

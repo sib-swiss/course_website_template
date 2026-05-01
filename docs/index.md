@@ -1,12 +1,14 @@
-# Course website
-
-Copyright: (SIB Swiss Institute of Bioinformatics if you are a SIB staff member) 
-
 ## Authors:
 
 * Author 1
 * Author 2
 * Author 3
+
+## License & copyright
+
+**License:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)
+
+**Copyright:** [SIB Swiss Institute of Bioinformatics](https://www.sib.swiss/)
 
 ## Learning outcomes
 
